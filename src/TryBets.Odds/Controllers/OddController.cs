@@ -20,6 +20,12 @@ public class OddController : Controller
 
     public IActionResult Patch(int MatchId, int TeamId, string BetValue)
     {
-        throw new NotImplementedException();
+        try {
+            var patchOdd = _repository.Patch(MatchId, TeamId, BetValue);
+            return Ok(patchOdd);
+        }
+        catch (Exception ex) {
+            return BadRequest(new { message = ex.Message});
+        }
     }
 }
