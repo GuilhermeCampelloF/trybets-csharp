@@ -4,7 +4,7 @@
 
 O projeto TryBets foi desenvolvido durante o curso de formação full-stack pela Trybe, na eletiva C#.
 
-A aplicação consiste no back-end de um site de apostas já implementado, no qual foram realizadas as divisões de certas funcionalidades em diferentes microsserviços.
+A aplicação consiste no back-end de um site de apostas previamente implementado, no qual foram realizadas as divisões de certas funcionalidades em diferentes microsserviços, a depender de suas especificidades.
 
 - A entidade `Users` é responsável por armazenar os dados das pessoas usuárias;
 - A entidade `Teams` armazena os possíveis times que participarão de partidas;
@@ -16,6 +16,27 @@ Esta `API` tem responsabilidade apenas de realizar o fluxo inicial de cadastrar 
 Segue abaixo o diagrama entidade-relacionamento:
   
 ![trybets-der](https://github.com/user-attachments/assets/89a9702f-6f01-42c7-905b-6355c27ba478)
+
+O banco de dados SQL Server dos microsserviços é o mesmo da aplicação monolítica, logo nenhuma alteração foi realizada nas models.
+
+## REQUISITOS:
+- Docker/Docker Compose
+- .NET SDK
+
+É possível testar todos os arquivos `Dockerfile` de uma vez executando o seguinte comando na raiz do projeto:
+
+```shell
+docker compose -f "docker-compose.microservices.yml" up -d --build
+```
+
+Para conectar-se ao sistema de gerenciamento de banco de dados, utilize as seguintes credenciais:
+
+- `Server`: localhost
+- `User`: sa
+- `Password`: TryBets123456!
+- `Trust server certificate`: true
+
+⚠️ **Será necessário criar as migrations do seu banco de dados na aplicação monolítica e rodar a aplicação ao menos uma vez para que o seeder alimente a tabela Teams e Matches**
 
 ## 📖 HABILIDADES TRABALHADAS 📖
 
@@ -69,3 +90,9 @@ Segue abaixo o diagrama entidade-relacionamento:
     - `Rotas`:
         - PATCH /odd/{matchId}/{TeamId}/{BetValue}
 </details>
+
+## ©️ DISCLAIMER
+
+<div align="justify">
+Com exceção das alterações destacadas acima no tópico "implementações realizadas", <b>TODOS OS DEMAIS ARQUIVOS</b> foram desenvolvidos e estão sob responsabilidade da TRYBE, incluindo, mas não se limitando ao: código inicial pré-implementado, models, services, database, diagrama entidade-relacionamento do sistema e demais diretórios necessários para o funcionamento da aplicação.
+</div>
