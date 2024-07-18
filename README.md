@@ -1,5 +1,3 @@
-# :construction: README em construção ! :construction:
-
 ## TRYBETS
 
 O projeto TryBets foi desenvolvido durante o curso de formação full-stack pela Trybe, na eletiva C#.
